@@ -31,5 +31,5 @@ lgd = legend;
 legend('Location','southwest')
 xlim([-5 30])
 ylim([10^-6 1]) 
-xlabel('SNR [dB]')
-ylabel('log(P_{e})')
+xlabel('Signal Noise Ratio - SNR [dB]', 'fontweight','bold','fontsize',11)
+ylabel('Error Probability', 'fontweight','bold','fontsize',11)
