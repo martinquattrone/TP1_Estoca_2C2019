@@ -1,7 +1,7 @@
 close all;
 %% Definiciones
 
-SNR_DB = linspace (-5 , 30 , 100) ;
+SNR_DB = linspace (-5 , 30 , 1000) ;
 SNR = 10.^(SNR_DB/10);
 n = 1 : 4 : 25;
 
