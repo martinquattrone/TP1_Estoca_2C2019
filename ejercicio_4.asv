@@ -7,7 +7,7 @@ h = 0.1;
 mu = 0;
 sigma=1;
 a = (10.^(SNR/10)*sigma/h.^2).^(1/2);
-n_realizaciones = 100;
+n_realizaciones = 100000;
 n_etapas = 9;
 
 figure(1)
@@ -106,7 +106,7 @@ ylabel('Error Probability', 'fontweight','bold','fontsize',11)
 
 %% EJERCICIO 4.3
 %% Calculo de funciones de densidad
-close all
+
 figure(2)
 h = 0.25;
 n = 9;
@@ -138,15 +138,16 @@ y_an = normrnd(-mu_y, sigma_y, size(aux));
 
 line_3 = histogram(y_a, 'Normalization', 'pdf');
 line_4 = histogram(y_an, 'Normalization', 'pdf');
-legend([line_1,line_2,line_3,line_4],{'f_{Y|X_1=A}','f_{Y|X_1=-A}','Histograma f_{Y|X_1=A}','Hi'});
+legend([line_1,line_2,line_3,line_4],{'f_{Y|X_1=A}','f_{Y|X_1=-A}','Histograma f_{Y|X_1=A}','Histograma f_{Y|X_1=-A}'});
 hold on;
+
 % Configruaciones del grafico
 figure(2)
 grid on
-legend('Location','southwest')
+legend('Location','northwest')
 xlim([-8 8])
 ylim([0 0.35]) 
-ylabel({'$f_{Y|X_1}$'},'Interpreter','latex', 'fontweight','bold','fontsize',11)
+ylabel({'$f_{Y|X_1}$'},'Interpreter', 'latex', 'fontweight','bold','fontsize',16)
 
 
 

@@ -106,7 +106,7 @@ ylabel('Error Probability', 'fontweight','bold','fontsize',11)
 
 %% EJERCICIO 4.3
 %% Calculo de funciones de densidad
-close all
+
 figure(2)
 h = 0.25;
 n = 9;
