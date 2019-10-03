@@ -127,7 +127,7 @@ pdfs_an = normpdf(l,(-mu_y),sigma_y);
 
 
 
-plot(l,pdfs_a);
+plot(l,pdfs_a, );
 hold on
 plot(l,pdfs_an);
 hold on
@@ -144,6 +144,8 @@ plot(l, h_y_an);
 hold on
 
 grid on
+
+
 legend('Location','southwest')
 xlim([-10 10])
 ylim([0 0.6]) 
