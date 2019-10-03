@@ -91,9 +91,7 @@ end
 semilogy(SNR, mean_e, 'DisplayName', 'Monte Carlo', 'Linewidth', 1.8, 'Linestyle', '--')
 hold on
 
-
-
-%% Configuraciones del grafico
+%% Configuraciones del grafico 1
 grid on
 lgd = legend;
 legend('Location','southwest')
@@ -101,4 +99,58 @@ xlim([0 30])
 ylim([10^-6 1]) 
 xlabel('Signal Noise Ratio - SNR [dB]', 'fontweight','bold','fontsize',11)
 ylabel('Error Probability', 'fontweight','bold','fontsize',11)
+
+
+%% Calculo de funciones de densidad
+close all
+h = 0.25;
+n = 9;
+a = 10;
+
+var_w = 0.1;
+sigma_w = sqrt(var_w);
+
+SNR = (power(a*h, 2)/var_w);
+G = sqrt(power(SNR/(SNR+1),n-1));
+
+mu_y = h * a * G;
+k = 0: (n-2);
+
+sigma_y = sigma_w * sqrt(sum( (SNR/(SNR+1) ).^(k+1) ));
+
+
+l = linspace(-5,5,10000);
+size_l = size(l);
+
+pdfs_a = normpdf(l,mu_y,sigma_y);
+pdfs_an = normpdf(l,(-mu_y),sigma_y);
+
+
+
+plot(l,pdfs_a);
+hold on
+plot(l,pdfs_an);
+hold on
+
+y_a = normrnd(mu_y, sigma_y, size_l);
+y_an = normrnd(-mu_y, sigma_y, size_l);
+
+h_y_a = histogram(y_a, 'Normalization', 'pdf');
+h_y_an = histogram(y_an, 'Normalization', 'pdf');
+
+plot(l, h_y_a);
+hold on
+plot(l, h_y_an);
+hold on
+
+grid on
+legend('Location','southwest')
+xlim([-10 10])
+ylim([0 0.6]) 
+ylabel({'$f_Y|X_1$'},'Interpreter','latex')
+
+
+
+
+
 
