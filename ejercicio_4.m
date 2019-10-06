@@ -7,7 +7,7 @@ h = 0.1;
 mu = 0;
 sigma=1;
 a = (10.^(SNR/10)*sigma/h.^2).^(1/2);
-n_realizaciones = 100000;
+n_realizaciones = 100;
 n_etapas = 9;
 
 figure(1)
